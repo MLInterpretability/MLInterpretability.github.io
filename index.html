@@ -24,15 +24,13 @@
   </p>
  </div>
 
- <div class = 'enterEmail'>
-     <h3>Authentication</h3>
-     <p>Please enter your email below:</p>
-     <form class='emailForm'>
-            <input class='form-control input-lg' type='text' placeholder='Enter email address...'>
+ <div class = 'startQuiz'>
+     <h3>Start</h3>
+     <p>Please click Next if you are ready to begin:</p>
+     <form class='consentForm'>
             <button>Next</button>
      </form>
-     <p><b>Note:</b> Your email will <b>only</b> be used for authentication purposes and will not be retained beyond the purposes of this study.</p>
- </div>
+  </div>
 
  <div id = 'Rest'></div>
 
@@ -386,7 +384,6 @@
     }
 
     //Variable to store data:
-    emailVal = '';
     dataReturn = [];
 
     //Set code to run once page is loaded
@@ -409,17 +406,13 @@
         $('.section').hide();
         $('.finished').hide();
 
-        //Start with grabbing email for authentication purposes:
-        $('.emailForm').on('submit', function(e){
+        //Initiate quiz:
+        $('.consentForm').on('submit', function(e){
             //Prevent page from refreshing
             e.preventDefault();
 
-            //Grab email:
-            emailVal = $('input').val();
-            console.log(emailVal);
-
-            //Hide email section
-            $('.enterEmail').hide();
+            //Hide Start section
+            $('.startQuiz').hide();
             
             //Display the first only to start with
             $('.section0').show();
@@ -483,7 +476,6 @@
                     
                     //Create result item:
                     result = {
-                        email : emailVal,
                         answers : dataReturn,
                         qSequence : runSummary
                     };
