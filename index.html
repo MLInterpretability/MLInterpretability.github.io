@@ -82,11 +82,11 @@
         ]
     };
     var part2 = {
-        header : '<b>Part 2:</b> Linear Model',
-        description : 'The following questions pertain to a linear regression model that uses various features to predict X.<br />Please examine the following in order and assess your level of comfort of utilizing the model for predictive purposes after each step.',
+        header : '<b>Part 2:</b> Logistic Regression Model',
+        description : 'The following questions pertain to a logistic regression model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.<br />Please examine the following in order and assess your level of comfort of utilizing the model for predictive purposes after each step.',
         questions : [
             {
-                questionText : 'The top feature of the model is age, with corresponding coefficient 2.67 [and a significance measure of...].Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : 'The top feature of the model is the size of bare nuclei, with corresponding coefficient of 0.41 and a p-value of 0.0006.<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
                 answers: ['Not at all comfortable, will not consult model',
                             'Not very comfortable, unlikely to consult model',
                             'Somewhat comfortable, may consult model but unlikely to rely on it',
@@ -95,7 +95,7 @@
                 ]
             },
             {
-                questionText : 'The 5 top features of the model and their corresponding coefficients are... <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<p>The intercept and 3 top features of the model and their corresponding coefficients are:<ul>Intercept: -10.59</li><li>Size of Bare Nuclei - Coefficient: 0.41, p-value: 0.0006</li><li>Clump Thickness - Coefficient: 0.57, p-value: 0.0033</li><li>Bland Chromatin - Coefficient: 0.44, p-value: 0.0434</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
                 answers : ['Not at all comfortable, will not consult model',
                             'Not very comfortable, unlikely to consult model',
                             'Somewhat comfortable, may consult model but unlikely to rely on it',
@@ -104,10 +104,28 @@
                 ]
             },
             {
-                questionText : '<b>Comprehension Question</b><br /><p>The following question will test your understanding of the Linear Model described previously.<br /> A patient exhibits the following:<br />- Age - X<br />- Feature a<br />- Feature b...</p><p>Based on the above, what would you expect the model to predict?</p>',
-                answers : ['Low Risk',
-                'Medium Risk',
-                'High Risk',
+                questionText : '<p>The model showscases accuracy of 96.55%, averaged over 10 runs. The McFadden R-Squared metric is 0.8881.</p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                answers : ['Not at all comfortable, will not consult model',
+                            'Not very comfortable, unlikely to consult model',
+                            'Somewhat comfortable, may consult model but unlikely to rely on it',
+                            'Fairly comfortable, likely to consult model',
+                            'Very comfortable, almost certain to consult model together with other tools'
+                ]
+            },
+            {
+                questionText : '<p>The model showscases the following prediction measures, averaged across 10 runs:<ul><li>Accuracy: 96.55%</li><li>Area under the Reciever Operating Characteristic Curve (AUC-ROC): 0.9908</li><li>Area under the Precision-Recall Curve: 0.9824</li><li>McFadden R-Squared: 0.8881</li><li>AIC: 94.37</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                answers : ['Not at all comfortable, will not consult model',
+                            'Not very comfortable, unlikely to consult model',
+                            'Somewhat comfortable, may consult model but unlikely to rely on it',
+                            'Fairly comfortable, likely to consult model',
+                            'Very comfortable, almost certain to consult model together with other tools'
+                ]
+            },
+            {
+                questionText : '<b>Comprehension Question</b><br /><p>The following question will test your understanding of the Linear Model described previously.<br /> A breast tumour exhibits the following:<br /><ul><li>Small bare nuclei (category 1/10)</li><li>Low clump thickness (category 2/10)</li><li>Medium bland chromatin (category 5/10)</li></ul></p><p>Based on the above, what would you expect the model to predict?</p>',
+                answers : ['Benign Tumour',
+                'Malignant Tumour',
+                'Model will fail to make a useful prediction',
                 'I am not sure'
                 ]
             }
@@ -149,8 +167,8 @@
 
     var parts = [part1, part2, part3];
     var questionCodes = [
-        {qCode: 1,display: [[1],[1,1,1],[1,1,1]], prob: 0.4},
-        {qCode: 2,display: [[1],[1,0,1],[1,0,1]], prob: 0.3},
+        {qCode: 1,display: [[1],[1,1,1,1,1],[1,1,1]], prob: 0.4},
+        {qCode: 2,display: [[1],[1,0,1,0,1],[1,0,1]], prob: 0.3},
         {qCode: 3,display: [[1],[0,1,1],[0,1,1]], prob: 0.3}
     ];
 
