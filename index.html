@@ -95,7 +95,7 @@
                 ]
             },
             {
-                questionText : '<p>The intercept and 3 top features of the model and their corresponding coefficients are:<ul>Intercept: -10.59</li><li>Size of Bare Nuclei - Coefficient: 0.41, p-value: 0.0006</li><li>Clump Thickness - Coefficient: 0.57, p-value: 0.0033</li><li>Bland Chromatin - Coefficient: 0.44, p-value: 0.0434</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<p>The intercept and 3 top features of the model and their corresponding coefficients are:<ul><li>Intercept: -10.59</li><li>Size of Bare Nuclei - Coefficient: 0.41, p-value: 0.0006</li><li>Clump Thickness - Coefficient: 0.57, p-value: 0.0033</li><li>Bland Chromatin - Coefficient: 0.44, p-value: 0.0434</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
                 answers : ['Not at all comfortable, will not consult model',
                             'Not very comfortable, unlikely to consult model',
                             'Somewhat comfortable, may consult model but unlikely to rely on it',
@@ -177,21 +177,21 @@
     var sequeneceData = [
         {
             section: 1, possibleSequences:[
-                {seqCode:'M0S0', seq: [1], numTries: 1, currentMean : 0.5, currentUCB : 1}
+                {seqCode:'M0S0', seq: [1], numTries: 0, currentMean : 0.5, currentUCB : 1}
             ]
         },
         {
             section: 2, possibleSequences:[
-                {seqCode:'M1S0', seq: [1,1,1], numTries: 1, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M1S1', seq: [1,0,1], numTries: 1, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M1S2', seq: [0,1,1], numTries: 1, currentMean : 0.5, currentUCB : 10}
+                {seqCode:'M1S0', seq: [1,1,1,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
+                {seqCode:'M1S1', seq: [1,0,1,0,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
+                {seqCode:'M1S2', seq: [0,1,0,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10}
             ]
         },
         {
             section: 3, possibleSequences:[
-                {seqCode:'M2S0', seq: [1,1,1], numTries: 1, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M2S1', seq: [1,0,1], numTries: 1, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M2S2', seq: [0,1,1], numTries: 1, currentMean : 0.5, currentUCB : 10}
+                {seqCode:'M2S0', seq: [1,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
+                {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
+                {seqCode:'M2S2', seq: [0,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10}
             ]
         }
     ];
