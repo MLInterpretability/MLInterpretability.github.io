@@ -83,50 +83,42 @@
     };
     var part2 = {
         header : '<b>Part 2:</b> Logistic Regression Model',
-        description : 'The following questions pertain to a logistic regression model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.<br />Please examine the following in order and assess your level of comfort of utilizing the model for predictive purposes after each step.',
+        description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p><b>Patient Scanario:</b><br />Barbara is a patient who presents with a breast tumour. Tests have indicated that the tumour exhibits large bare nuclei, bland chromatin, and high clump thickness, although the cell size and shape are overall uniform.<br />The logistic regression model has predicted a 98.36% probability that the tumour is malignant, and recomemnds that Barbara be referred to an oncologist immediately for further consultation.</p><p>Please examine the following evidec in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
-                questionText : 'The top feature of the model is the size of bare nuclei, with corresponding coefficient of 0.41 and a p-value of 0.0006.<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers: ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
+                questionText : 'The top feature of the model is the size of bare nuclei, with corresponding coefficient of 0.41 and a p-value of 0.0006.<br />Given this and previous information, how confident would you feel using the results of the model to inform medical actions?',
+                answers: ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
                 questionText : '<p>The intercept and 3 top features of the model and their corresponding coefficients are:<ul><li>Intercept: -10.59</li><li>Size of Bare Nuclei - Coefficient: 0.41, p-value: 0.0006</li><li>Clump Thickness - Coefficient: 0.57, p-value: 0.0033</li><li>Bland Chromatin - Coefficient: 0.44, p-value: 0.0434</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers : ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
+                answers : ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
                 questionText : '<p>The model showscases accuracy of 96.55%, averaged over 10 runs. The McFadden R-Squared metric is 0.8881.</p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers : ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
+                answers : ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
                 questionText : '<p>The model showscases the following prediction measures, averaged across 10 runs:<ul><li>Accuracy: 96.55%</li><li>Area under the Reciever Operating Characteristic Curve (AUC-ROC): 0.9908</li><li>Area under the Precision-Recall Curve: 0.9824</li><li>McFadden R-Squared: 0.8881</li><li>AIC: 94.37</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers : ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
-                ]
-            },
-            {
-                questionText : '<b>Comprehension Question</b><br /><p>The following question will test your understanding of the Linear Model described previously.<br /> A breast tumour exhibits the following:<br /><ul><li>Small bare nuclei (category 1/10)</li><li>Low clump thickness (category 2/10)</li><li>Medium bland chromatin (category 5/10)</li></ul></p><p>Based on the above, what would you expect the model to predict?</p>',
-                answers : ['Benign Tumour',
-                'Malignant Tumour',
-                'Model will fail to make a useful prediction',
-                'I am not sure'
+                answers : ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             }
         ]
@@ -134,32 +126,24 @@
 
     var part3 = {
         header : '<b>Part 3:</b> Neural Network',
-        description : 'The following questions pertain to a neural network that uses various features to predict X.<br />Please examine the following in order and assess your level of comfort of utilizing the model for predictive purposes after each step.',
+        description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p><b>Patient Scanario:</b><br />Patient Adam has just experienced heart failure. He exhibits... The neural network model estimates that the risk of Adam dying within the next year is 120%, with confidence...</p><p>Please examine the following evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
                 questionText : 'The network has 3 hidden layers each consisting of 100 nodes. Dropout was used as a method to control overfitting. The accuracy is 90.17%.<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers: ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
+                answers: ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
                 questionText : 'The neural network can be approximated using a linear model. For one patient who was predicted to have high risk, the following coefficients represent the top features leading to this prediction:...<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
-                answers : ['Not at all comfortable, will not consult model',
-                            'Not very comfortable, unlikely to consult model',
-                            'Somewhat comfortable, may consult model but unlikely to rely on it',
-                            'Fairly comfortable, likely to consult model',
-                            'Very comfortable, almost certain to consult model together with other tools'
-                ]
-            },
-            {
-                questionText : '<b>Comprehension Question</b><br /><p>The following question will test your understanding of the <b>Neural Network</b> described previously.<br /> A patient exhibits the following:<br />- Age - X<br />- Feature a<br />- Feature b...</p><p>Based on the above, what would you expect the model to predict?</p>',
-                answers : ['Low Risk',
-                'Medium Risk',
-                'High Risk',
-                'I am not sure'
+                answers : ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             }
         ]
@@ -167,31 +151,31 @@
 
     var parts = [part1, part2, part3];
     var questionCodes = [
-        {qCode: 1,display: [[1],[1,1,1,1,1],[1,1,1]], prob: 0.4},
-        {qCode: 2,display: [[1],[1,0,1,0,1],[1,0,1]], prob: 0.3},
-        {qCode: 3,display: [[1],[0,1,0,1,1],[0,1,1]], prob: 0.3}
+        {qCode: 1,display: [[1],[1,1,1,1],[1,1]], prob: 0.4},
+        {qCode: 2,display: [[1],[1,0,1,0],[1,0]], prob: 0.3},
+        {qCode: 3,display: [[1],[0,1,0,1],[0,1]], prob: 0.3}
     ];
 
-    var answerKey = [0,2];
+    //var answerKey = [0,2];
 
-    var sequeneceData = [
+    var sequenceData = [
         {
             section: 1, possibleSequences:[
-                {seqCode:'M0S0', seq: [1], numTries: 0, currentMean : 0.5, currentUCB : 1}
+                {seqCode:'M0S0', seq: [1], numTries: 0, currentMean : 2.5, currentUCB : 1}
             ]
         },
         {
             section: 2, possibleSequences:[
-                {seqCode:'M1S0', seq: [1,1,1,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M1S1', seq: [1,0,1,0,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M1S2', seq: [0,1,0,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10}
+                {seqCode:'M1S0', seq: [1,1,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S1', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S2', seq: [0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
             ]
         },
         {
             section: 3, possibleSequences:[
-                {seqCode:'M2S0', seq: [1,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 0.5, currentUCB : 10},
-                {seqCode:'M2S2', seq: [0,1,1], numTries: 0, currentMean : 0.5, currentUCB : 10}
+                {seqCode:'M2S0', seq: [1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M2S1', seq: [1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M2S2', seq: [0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
             ]
         }
     ];
@@ -344,14 +328,15 @@
         {
             sectData = initialSeqData[a+1];
 
-            //Figure out whether we were correct:
-            correct = 0;
+            //Find the final confidence score in the model (that's our reward):
             qSoFar = qSoFar + sectData.possibleSequences[0].seq.length
-            if (resultList[qSoFar - 1] == answerKey[a])
+            confScore = resultList[qSoFar-1];
+            wloop = qSoFar - 2;
+            while(confScore == -1 && qSoFar >= 0)
             {
-                correct = 1;
+                confScore = resultList[wloop];
+                wloop = wloop - 1;
             }
-            console.log(correct);
 
             ranCode = runSummary[a+1].seqCode;
 
@@ -365,8 +350,14 @@
                 //If we're at the sequence we ran, we must update many things:
                 if (curSeq.seqCode == ranCode)
                 {
+                    console.log('stuff')
+                    console.log(curSeq.currentMean)
+                    console.log(curSeq.numTries)
+                    console.log(confScore)
+                    
+
                     upTries = curSeq.numTries + 1;
-                    upMean = (curSeq.currentMean*curSeq.numTries + correct)/upTries;
+                    upMean = ((curSeq.currentMean*curSeq.numTries) + parseInt(confScore))/upTries;
                     upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
 
                     //Check for NaN:
@@ -511,8 +502,8 @@
                     returnData = 
                     {
                         name:'X',
-                        data:updatedUBC,
-                        accessCount:dbAccesses+1
+                        data:updatedUBC,//sequenceData,
+                        accessCount:dbAccesses+1//0
                     };
                     console.log(returnData);
 
