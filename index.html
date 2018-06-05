@@ -14,12 +14,34 @@
 </head>
   <h3>Details</h3>
   <p>
-    Thank you for participating in our study. It has been approved by ethics committee... </br>
-    The purpose of the study is the ascertain users' comfort with different machine learning models given various forms of evidence, interpretations, and representations.
-  </p>
+    Thank you for your interest in our study.</br>
+    The purpose of the study is the explore users' confidence in using different machine learning models to predict outcomes for patient scenarios, given various forms of evidence, interpretations, and representations.<br />
+    Please click below for full details before you start the quiz.</p>
+    <button class = 'showStudyInfo'>Full Study Info</button>
+  <div class='studyInfo' style='font-size:75%;'>
+    <h5>General Information</h5>
+        <p>Machine Learning and Artificial Intelligence models are gaining enthusiasm for their ability to produce highly accurate predictive and analytical insights. However, as many such models, including neural networks, are <i>black-boxes</i>, many fields of practice are reluctant to utilize these models without an ability to interpret their results or understand a model made its prediction.</p>
+        <p>The aim of this study is to explore this phenomenon and understand what type of model evidence and interpretability modules will increase comprehension and the comfort levels for users of different machine learning predictive models.</p>
+        <p>We appreciate your interest in participating in this online quiz. You have been invited to participate as a student in a STEM discipline. Please read through these terms before beginning the quiz. You will participate by ticking the <i>Start</i> box below. You may ask any questions before taking part by contacting the researcher (details below).</p>
+        <p>We, the University of Oxford, are investigating Machine Learning model interpretability. You will be presented with limited information on a machine learning model, followed by further evidence regrading the model. You will then be asked to rate your confidence level with utilizing the model for predictive purposes.</p>
+        <p>The full quiz should take about 10-15 minutes. No background knowledge is required. Your results will be utilized to determine the best interpretability modules and types of evidence to present to potential users of different machine learning models, and will be collected and utilized by the Computer Science and Engineering Departments at Oxford. <b>No personally identifiable information will be collected or shared</b>.</p>
+    <h5>Do I have to take part?</h5>
+        <p>Please note that your participation is voluntary. You may withdraw at any point during the questionnaire for any reason, before submitting your answers, by closing the browser. None of your answers will then be collected.</p>
+    <h5>How will your data be used?</h5>
+        <p>Your answers will be completely anonymous, and we will use all reasonable endeavours to keep them confidential. No personally identifiable, including but not limited to IP address, email address, or name, will be requested or collected.</p>
+        <p>Your answers will be stored in a password-protected file and may be used in academic publications. Your IP address will not be stored. Research data will be stored for a minimum of three years after publication or public release.</p>
+    <h5>Who will have access to your data?</h5>
+        <p>The University of Oxford is the data controller for the purposes of the Data Protection Act 1998.</p>
+        <p>We would like your permission to use your unidentifiable data in future studies, and to share data with other researchers (e.g. in online databases).</p>
+        <p>Any personal information that could identify you will not be collected or be removed before files are shared with other researchers or results are made public.</p>
+        <p>This questionnaire is for an MSc project. The principal researcher is Owen Lahav, who is attached to the Department of Computer Science at the University of Oxford. This project is being completed under the supervision of Mihaela van der Schaar and Edith Elkind. This project has been reviewed by the University of Oxford’s Department of Computer Science’s Research Ethics Committee.</p>
+    <h5>What if there is a problem?</h5>
+        <p>If you have a concern about any aspect of this project, please speak to the researcher at oren.lahav@gtc.ox.ac.uk who will do his best to answer your query. The researcher should acknowledge your concern within 10 working days and give you an indication of how they intend to deal with it.</p>
+        <p>If you are over 18 and have read the information above and agree to participate with the understanding that the data (including any personal data) you submit will be processed accordingly, please click the ‘Start’ box below to get started. By doing so you will be providing your consent to participate.</p>
+  </div>
     <h3>Instructions:</h3>
   <p>
-    Please assess your level of comfort utilizing the models described to the best of your ability after each question, and answer the comprehension question at the end of each section.
+    Please review the patient scenario and evidence presented, and assess your level of comfort utilizing the models described to the best of your ability after each question.
     <b>Please do not use the back/forward or refresh buttons once you have started the quiz.</b>
   </p>
  </div>
@@ -83,10 +105,10 @@
     };
     var part2 = {
         header : '<b>Part 2:</b> Logistic Regression Model',
-        description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p><b>Patient Scanario:</b><br />Barbara is a patient who presents with a breast tumour. Tests have indicated that the tumour exhibits large bare nuclei, bland chromatin, and high clump thickness, although the cell size and shape are overall uniform.<br />The logistic regression model has predicted a 98.36% probability that the tumour is malignant, and recomemnds that Barbara be referred to an oncologist immediately for further consultation.</p><p>Please examine the following evidence in order and assess your level of confidence in the model after each step.</p>',
+        description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
-                questionText : 'The top feature of the model is the size of bare nuclei, with corresponding coefficient of 0.41 and a p-value of 0.0006.<br />Given this and previous information, how confident would you feel using the results of the model to inform medical actions?',
+                questionText : '<image src="M1Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers: ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
@@ -95,7 +117,7 @@
                 ]
             },
             {
-                questionText : '<p>The intercept and 3 top features of the model and their corresponding coefficients are:<ul><li>Intercept: -10.59</li><li>Size of Bare Nuclei - Coefficient: 0.41, p-value: 0.0006</li><li>Clump Thickness - Coefficient: 0.57, p-value: 0.0033</li><li>Bland Chromatin - Coefficient: 0.44, p-value: 0.0434</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<image src="M1Q2.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers : ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
@@ -104,7 +126,7 @@
                 ]
             },
             {
-                questionText : '<p>The model showscases accuracy of 96.55%, averaged over 10 runs. The McFadden R-Squared metric is 0.8881.</p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<image src="M1Q3.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers : ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
@@ -113,7 +135,16 @@
                 ]
             },
             {
-                questionText : '<p>The model showscases the following prediction measures, averaged across 10 runs:<ul><li>Accuracy: 96.55%</li><li>Area under the Reciever Operating Characteristic Curve (AUC-ROC): 0.9908</li><li>Area under the Precision-Recall Curve: 0.9824</li><li>McFadden R-Squared: 0.8881</li><li>AIC: 94.37</li></ul></p> <br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<image src="M1Q4.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
+                answers : ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="M1Q5.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers : ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
@@ -126,10 +157,10 @@
 
     var part3 = {
         header : '<b>Part 3:</b> Neural Network',
-        description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p><b>Patient Scanario:</b><br />Patient Adam has just experienced heart failure. He exhibits... The neural network model estimates that the risk of Adam dying within the next year is 120%, with confidence...</p><p>Please examine the following evidence in order and assess your level of confidence in the model after each step.</p>',
+        description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
-                questionText : 'The network has 3 hidden layers each consisting of 100 nodes. Dropout was used as a method to control overfitting. The accuracy is 90.17%.<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<image src="M2Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers: ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
@@ -138,22 +169,31 @@
                 ]
             },
             {
-                questionText : 'The neural network can be approximated using a linear model. For one patient who was predicted to have high risk, the following coefficients represent the top features leading to this prediction:...<br />Given this and previous information, how comfortable would you feel using the model for predictive purposes?',
+                questionText : '<image src="M2Q2.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers : ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
                             'Fairly confident, likely to consult model',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
-            }
+            },
+            {
+                questionText : '<image src="M2Q3.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
+                answers: ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
         ]
     };
 
     var parts = [part1, part2, part3];
     var questionCodes = [
-        {qCode: 1,display: [[1],[1,1,1,1],[1,1]], prob: 0.4},
-        {qCode: 2,display: [[1],[1,0,1,0],[1,0]], prob: 0.3},
-        {qCode: 3,display: [[1],[0,1,0,1],[0,1]], prob: 0.3}
+        {qCode: 1,display: [[1],[1,1,1,1],[1,1,0]], prob: 0.4},
+        {qCode: 2,display: [[1],[1,0,1,0],[1,0,1]], prob: 0.3},
+        {qCode: 3,display: [[1],[0,1,0,1],[0,1,0]], prob: 0.3}
     ];
 
     //var answerKey = [0,2];
@@ -166,16 +206,20 @@
         },
         {
             section: 2, possibleSequences:[
-                {seqCode:'M1S0', seq: [1,1,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S1', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S2', seq: [0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
             ]
         },
         {
             section: 3, possibleSequences:[
-                {seqCode:'M2S0', seq: [1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S1', seq: [1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S2', seq: [0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                {seqCode:'M2S2', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
             ]
         }
     ];
@@ -254,7 +298,8 @@
     var dbAccesses = 1;
     var dbSeqData;
 
-    //Function to choose, probabilistically, which sequence to show
+
+    //Function to choose, based on UCB, which sequence to show
     function chooseSequence()
     {
         seqToRun = [];
@@ -310,6 +355,9 @@
         });
     }
 
+
+    //Function to update UCB once quiz is done
+
     function updateUBC(resultList, initialSeqData, runSummary, numAccess)
     {
         console.log('UBC Update Step initiate!');
@@ -350,12 +398,6 @@
                 //If we're at the sequence we ran, we must update many things:
                 if (curSeq.seqCode == ranCode)
                 {
-                    console.log('stuff')
-                    console.log(curSeq.currentMean)
-                    console.log(curSeq.numTries)
-                    console.log(confScore)
-                    
-
                     upTries = curSeq.numTries + 1;
                     upMean = ((curSeq.currentMean*curSeq.numTries) + parseInt(confScore))/upTries;
                     upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
@@ -414,6 +456,12 @@
         $('.question').hide();
         $('.section').hide();
         $('.finished').hide();
+        $('.studyInfo').hide();
+
+        //Show full quiz details
+        $('.showStudyInfo').on('click', function() {
+            $('.studyInfo').toggle();
+        })
 
         //Initiate quiz:
         $('.consentForm').on('submit', function(e){
@@ -433,6 +481,8 @@
         var clicked = 0;
         var questionsInSection = 0;
         var sectionsPassed = 0;
+
+        //Display
 
         //On click
         $('.button').on('click', function() {
@@ -496,8 +546,14 @@
                     var dbRefProbs = firebase.database().ref('Probs');
                     var dbRefProbHist = firebase.database().ref('History');
                     
+                    var initialSeqData;
+
+                    dbRefProbs.once('value', (response) => {
+                        initialSeqData = response.val().data;
+                    });
+
                     //Run the update function
-                    updatedUBC = updateUBC(dataReturn, dbSeqData, runSummary, dbAccesses)
+                    updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
 
                     returnData = 
                     {
