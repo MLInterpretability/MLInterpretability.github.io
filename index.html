@@ -48,9 +48,12 @@
 
  <div class = 'startQuiz'>
      <h3>Start</h3>
-     <p>Please click Next if you are ready to begin:</p>
-     <form class='consentForm'>
-            <button>Next</button>
+     <p>If you are ready to begin, please indicate your program and level of study:</p>
+     <form class='contextForm'>
+            <input type="radio" class="contextQ" name='contextQ' value=0> Medical Sciences, Biology, Chemistry (or related)<br>
+            <input type="radio" class="contextQ" name='contextQ' value=1> Mathematics, Statistics, Computer Science (or related)<br>
+            <input type="radio" class="contextQ" name='contextQ'  value=2> Other<br><br> 
+            <input type="submit" value="Start">    
      </form>
   </div>
 
@@ -89,21 +92,6 @@
 
     
     var part1 = {
-        header : '<b>Part 1:</b> Background',
-        description : 'This question identifies YOUR background',
-        questions : [
-            {
-                questionText : '<b>Please indicate your program and level of study:</b>',
-                answers : ['Medical (or related), Undergraduate',
-                'Medical (or related), Postgraduate',
-                'Mathematics, Statistics, Computer Science (or related), Undergraduate',
-                'Mathematics, Statistics, Computer Science (or related), Postgraduate',
-                'Other'
-                ]
-            }
-        ]
-    };
-    var part2 = {
         header : '<b>Part 2:</b> Logistic Regression Model',
         description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
@@ -155,7 +143,7 @@
         ]
     };
 
-    var part3 = {
+    var part2 = {
         header : '<b>Part 3:</b> Neural Network',
         description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
@@ -189,37 +177,89 @@
         ]
     };
 
-    var parts = [part1, part2, part3];
+    var parts = [part1, part2];
     var questionCodes = [
-        {qCode: 1,display: [[1],[1,1,1,1],[1,1,0]], prob: 0.4},
-        {qCode: 2,display: [[1],[1,0,1,0],[1,0,1]], prob: 0.3},
-        {qCode: 3,display: [[1],[0,1,0,1],[0,1,0]], prob: 0.3}
+        {qCode: 1,display: [[1,1,1,1],[1,1,0]], prob: 0.4},
+        {qCode: 2,display: [[1,0,1,0],[1,0,1]], prob: 0.3},
+        {qCode: 3,display: [[0,1,0,1],[0,1,0]], prob: 0.3}
     ];
 
     //var answerKey = [0,2];
 
     var sequenceData = [
         {
-            section: 1, possibleSequences:[
-                {seqCode:'M0S0', seq: [1], numTries: 0, currentMean : 2.5, currentUCB : 1}
+            context : 0,
+            contextCounter : 0,
+            contextData : 
+            [
+                {
+                    section: 1, possibleSequences:[
+                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 2, possibleSequences:[
+                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                }
             ]
         },
         {
-            section: 2, possibleSequences:[
-                {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+            context : 1,
+            contextCounter : 0,
+            contextData : 
+            [
+                {
+                    section: 1, possibleSequences:[
+                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 2, possibleSequences:[
+                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                }
             ]
         },
         {
-            section: 3, possibleSequences:[
-                {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+            context : 2,
+            contextCounter : 0,
+            contextData : 
+            [
+                {
+                    section: 1, possibleSequences:[
+                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 2, possibleSequences:[
+                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                }
             ]
         }
     ];
@@ -227,6 +267,7 @@
 
     var questionCounter = 0;
     var sectionCounter = 0;
+    var numContexts = 0;
 
     //Create function to display a question:
     function displayQuestion(qNum, q)
@@ -263,7 +304,7 @@
         output = [];
         questionList = [];
 
-        //Choose which questions to display by probability
+        //Display ALL questions (we'll hide them later)
         for(var q=0; q<section.questions.length; q++)
         {
            questionList.push(displayQuestion(questionCounter,section.questions[q]));
@@ -310,42 +351,61 @@
 
         dbRefProbs.once('value', (response) => {
             
-                dbSeqData = response.val().data;
+                dbData = response.val().data;
                 dbAccesses = response.val().accessCount;
-                console.log(dbSeqData);
+                console.log(dbData);
                 console.log('Accesses: '+dbAccesses);
 
-                //For! Each section:
-                for (var sect = 0; sect < dbSeqData.length; sect++)
+                //For! Each context:
+
+                for (var ctxt = 0; ctxt < dbData.length; ctxt++)
                 {
-                    console.log('Section?');
-                    console.log(sect);
-                    console.log(dbSeqData[sect].possibleSequences);
+                    contextSeqData = dbData[ctxt].contextData;
+                    //console.log('Context Data:')
+                    //console.log(contextSeqData)
 
-                    topSeq = [];
-                    topCode = '';
-                    UCBTrack = 0;
+                    contextSeqToRun = [];
+                    contextRunSummary = [];
 
-                    possSeqs = dbSeqData[sect].possibleSequences;
-                    
-                    //Cycle through sequences
-                    for (var pSeq = 0; pSeq < possSeqs.length; pSeq++)
+                    //For! Each section:
+                    for (var sect = 0; sect < contextSeqData.length; sect++)
                     {
-                        //If UCB is higher than the previous one, set this sequence to be chosen
-                        if (possSeqs[pSeq].currentUCB >= UCBTrack)
+                        //console.log('Section?');
+                        //console.log(sect);
+                        //console.log(contextSeqData[sect].possibleSequences);
+
+                        topSeq = [];
+                        topCode = '';
+                        UCBTrack = 0;
+
+                        possSeqs = contextSeqData[sect].possibleSequences;
+                    
+                        //Cycle through sequences
+                        for (var pSeq = 0; pSeq < possSeqs.length; pSeq++)
                         {
-                            topCode = possSeqs[pSeq].seqCode;
-                            topSeq = possSeqs[pSeq].seq;
-                            UCBTrack = possSeqs[pSeq].currentUCB;
+                            //If UCB is higher than the previous one, set this sequence to be chosen
+                            if (possSeqs[pSeq].currentUCB >= UCBTrack)
+                            {
+                                topCode = possSeqs[pSeq].seqCode;
+                                topSeq = possSeqs[pSeq].seq;
+                                UCBTrack = possSeqs[pSeq].currentUCB;
+                            }
                         }
+
+                        contextSeqToRun = contextSeqToRun.concat(topSeq);
+                        contextRunSummary.push({
+                            sectionNo: contextSeqData[sect].section,
+                            seqCode : topCode,
+                            seqDesc : topSeq
+                        });
+
                     }
 
-                    seqToRun = seqToRun.concat(topSeq);
-                    runSummary.push({
-                        sectionNo: dbSeqData[sect].section,
-                        seqCode : topCode,
-                        seqDesc : topSeq
-                    });
+
+
+                    seqToRun.push(contextSeqToRun);
+                    runSummary.push({contextNo: ctxt, seqData: contextRunSummary});
+
 
                 }
 
@@ -360,82 +420,118 @@
 
     function updateUBC(resultList, initialSeqData, runSummary, numAccess)
     {
-        ;
         console.log('UBC Update Step initiate!');
         console.log(initialSeqData);
 
         //Update total number of accesses
         upAccesses = numAccess + 1;
-    
-        //Set up the updated sequence data vector to return.
-        //Section0, the context question, always remains the same:
-        upSeqData = [{section:1,possibleSequences:[{seqCode:'M0S0', seq: [1], numTries: 1, currentMean : 0.5, currentUCB : 1}]}];
-        qSoFar = 1;
+        upSeqData = [];
+        upContextCount = 0;
 
-        //For every subsequent section
-        for(var a = 0; a < initialSeqData.length - 1; a++)
+        for (var ctxt = 0; ctxt < initialSeqData.length; ctxt++)
         {
-            sectData = initialSeqData[a+1];
+            currentData = initialSeqData[ctxt];
 
-            //Find the final confidence score in the model (that's our reward):
-            qSoFar = qSoFar + sectData.possibleSequences[0].seq.length
-            confScore = resultList[qSoFar-1];
-            wloop = qSoFar - 2;
-            while(confScore == -1 && qSoFar >= 0)
+            if (ctxt != userContext)
             {
-                confScore = resultList[wloop];
-                wloop = wloop - 1;
+                upSeqData.push(currentData);
             }
 
-            ranCode = runSummary[a+1].seqCode;
-
-            upPossSeq = []
-
-            //For each possible sequence:
-            for (var b = 0; b < sectData.possibleSequences.length; b++)
+            else
             {
-                curSeq = sectData.possibleSequences[b];
+                console.log('hit context '+ctxt)
+                //Set up the updated sequence data vector to return.
+                //Section0, the context question, always remains the same:
+                qSoFar = 0;
 
-                //If we're at the sequence we ran, we must update many things:
-                if (curSeq.seqCode == ranCode)
+                upContextCount = currentData.contextCounter + 1;
+                currentData = currentData.contextData;
+                contextUpSeqData = [];
+
+                //For every section
+                for(var a = 0; a < currentData.length; a++)
                 {
-                    upTries = curSeq.numTries + 1;
-                    upMean = ((curSeq.currentMean*curSeq.numTries) + parseInt(confScore))/upTries;
-                    upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
+                    sectData = currentData[a];
+                    //console.log('sectData');
+                    //console.log(sectData);
 
-                    //Check for NaN:
-                    if (isNaN(upUCB) || upTries<=1) {upUCB=10;}
+                    //Find the final confidence score in the model (that's our reward):
+                    qSoFar = qSoFar + sectData.possibleSequences[0].seq.length
+                    confScore = resultList[qSoFar-1];
+                    wloop = qSoFar - 2;
+                    while(confScore == -1 && qSoFar >= 0)
+                    {
+                        confScore = resultList[wloop];
+                        wloop = wloop - 1;
+                    }
+
+                    //console.log('score?');
+                    //console.log(confScore);
+
+                    ranCode = runSummary[userContext].seqData[a].seqCode;
+                    //console.log(ranCode);
+
+                    upPossSeq = [];
+
+                    //For each possible sequence:
+                    for (var b = 0; b < sectData.possibleSequences.length; b++)
+                    {
+                        curSeq = sectData.possibleSequences[b];
+
+                        //If we're at the sequence we ran, we must update many things:
+                        if (curSeq.seqCode == ranCode)
+                        {
+                            upTries = curSeq.numTries + 1;
+                            upMean = ((curSeq.currentMean*curSeq.numTries) + parseInt(confScore))/upTries;
+                            upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
+
+                            //Check for NaN:
+                            if (isNaN(upUCB) || upTries<=1) {upUCB=10;}
+                        }
+                        else
+                        {
+                            upTries = curSeq.numTries;
+                            upMean = curSeq.currentMean;
+                            upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
+
+                            //Check for NaN:
+                            if (isNaN(upUCB) || upTries<=1) {upUCB=10;}
+                        }
+
+                        upSeq = {
+                            seqCode : curSeq.seqCode,
+                            seq : curSeq.seq,
+                            numTries : upTries,
+                            currentMean : upMean,
+                            currentUCB : upUCB
+                        };
+
+                        //console.log('upSeq');
+                        //console.log(upSeq);
+
+                        upPossSeq.push(upSeq);
+                    }
+
+                    upSect = {section:a, possibleSequences:upPossSeq};
+                    contextUpSeqData.push(upSect);
+                    //console.log('upSect')
+                    //console.log(upSect)
+                    //console.log(contextUpSeqData)
                 }
-                else
-                {
-                    upTries = curSeq.numTries;
-                    upMean = curSeq.currentMean;
-                    upUCB = upMean + Math.min(Math.sqrt(2*(Math.log(upAccesses)/Math.log(upTries))),10);
 
-                    //Check for NaN:
-                    if (isNaN(upUCB) || upTries<=1) {upUCB=10;}
-                }
+                upSeqData.push({context: ctxt, contextCounter : upContextCount, contextData: contextUpSeqData});                
 
-                upSeq = {
-                    seqCode : curSeq.seqCode,
-                    seq : curSeq.seq,
-                    numTries : upTries,
-                    currentMean : upMean,
-                    currentUCB : upUCB
-                };
-
-                upPossSeq.push(upSeq);
             }
 
-            upSect = {section:a+2,possibleSequences:upPossSeq};
-            upSeqData.push(upSect);
+            
         }
         console.log('Updated UCB Values: ')
         console.log(upSeqData);
         return upSeqData;
     }
 
-    //Variable to store data:
+    //Variables to store data:
+    userContext = 0;
     dataReturn = [];
 
     //Set code to run once page is loaded
@@ -465,9 +561,14 @@
         })
 
         //Initiate quiz:
-        $('.consentForm').on('submit', function(e){
+        $('.contextForm').on('submit', function(e){
             //Prevent page from refreshing
             e.preventDefault();
+
+            //Get response
+            userContext = $('input:checked').val();
+            console.log('User Context:');
+            console.log(userContext);
 
             //Hide Start section
             $('.startQuiz').hide();
@@ -537,6 +638,7 @@
                     //Create result item:
                     result = {
                         answers : dataReturn,
+                        context : userContext,
                         qSequence : runSummary
                     };
 
@@ -546,7 +648,7 @@
                     //Call Firebase
                     var dbRefProbs = firebase.database().ref('Probs');
                     var dbRefProbHist = firebase.database().ref('History');
-                    
+
                     //Redownload
                     var initialSeqData;
 
@@ -564,9 +666,6 @@
 
                         updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
                     
-
-                    
-
                     //Run the update function
                     returnData = 
                     {
@@ -591,7 +690,7 @@
                 else
                 {
                     $(currentQuestion).hide();
-                    if(seqToRun[clicked] == 1)
+                    if(seqToRun[userContext][clicked] == 1)
                     {
                         $(nextQuestion).show();
                         foundNextQuestion = true;
@@ -620,6 +719,7 @@
         // Return the Deferred's Promise object
         return deferred.promise();
     }
+
   </script>
 
 
