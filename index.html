@@ -219,7 +219,7 @@
                 {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
                 {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
                 {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                {seqCode:'M2S2', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
             ]
         }
     ];
@@ -360,6 +360,7 @@
 
     function updateUBC(resultList, initialSeqData, runSummary, numAccess)
     {
+        ;
         console.log('UBC Update Step initiate!');
         console.log(initialSeqData);
 
@@ -546,15 +547,27 @@
                     var dbRefProbs = firebase.database().ref('Probs');
                     var dbRefProbHist = firebase.database().ref('History');
                     
+                    //Redownload
                     var initialSeqData;
 
                     dbRefProbs.once('value', (response) => {
                         initialSeqData = response.val().data;
                     });
 
-                    //Run the update function
-                    updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
+                    var updatedUBC;
 
+                    //Alert user to buy time
+
+                    timeout(2000).then( function(){
+                        console.log("Break check")
+                        console.log(initialSeqData)
+
+                        updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
+                    
+
+                    
+
+                    //Run the update function
                     returnData = 
                     {
                         name:'X',
@@ -566,6 +579,8 @@
                     //Log the updates
                     dbRefProbs.set(returnData); 
                     dbRefProbHist.push(returnData);
+
+                    });
 
 
                     //Exit loop
@@ -591,6 +606,20 @@
                         
         })
     })
+
+
+    //Extra function to wait for Firebase variable to come back
+    function timeout(milliseconds) {
+        // Create a new Deferred object
+        var deferred = $.Deferred();
+
+        // Resolve the Deferred after the amount of time specified by milliseconds
+        alert('Thank you for completing the quiz! By clicking OK you are providing your consent to participating in the study and having your answers logged. No personally identifiable information has been recorded.')
+        setTimeout(deferred.resolve, 0);
+
+        // Return the Deferred's Promise object
+        return deferred.promise();
+    }
   </script>
 
 
