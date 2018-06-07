@@ -16,15 +16,15 @@
   <p>
     Thank you for your interest in our study.</br>
     The purpose of the study is the explore users' confidence in using different machine learning models to predict outcomes for patient scenarios, given various forms of evidence, interpretations, and representations.<br />
-    Please click below for full details before you start the quiz.</p>
+    Please click below for full details before you start the survey.</p>
     <button class = 'showStudyInfo'>Full Study Info</button>
   <div class='studyInfo' style='font-size:75%;'>
     <h5>General Information</h5>
         <p>Machine Learning and Artificial Intelligence models are gaining enthusiasm for their ability to produce highly accurate predictive and analytical insights. However, as many such models, including neural networks, are <i>black-boxes</i>, many fields of practice are reluctant to utilize these models without an ability to interpret their results or understand a model made its prediction.</p>
         <p>The aim of this study is to explore this phenomenon and understand what type of model evidence and interpretability modules will increase comprehension and the comfort levels for users of different machine learning predictive models.</p>
-        <p>We appreciate your interest in participating in this online quiz. You have been invited to participate as a student in a STEM discipline. Please read through these terms before beginning the quiz. You will participate by ticking the <i>Start</i> box below. You may ask any questions before taking part by contacting the researcher (details below).</p>
+        <p>We appreciate your interest in participating in this online survey. You have been invited to participate as a student in a STEM discipline. Please read through these terms before beginning the survey. You will participate by ticking the <i>Start</i> box below. You may ask any questions before taking part by contacting the researcher (details below).</p>
         <p>We, the University of Oxford, are investigating Machine Learning model interpretability. You will be presented with limited information on a machine learning model, followed by further evidence regrading the model. You will then be asked to rate your confidence level with utilizing the model for predictive purposes.</p>
-        <p>The full quiz should take about 10-15 minutes. No background knowledge is required. Your results will be utilized to determine the best interpretability modules and types of evidence to present to potential users of different machine learning models, and will be collected and utilized by the Computer Science and Engineering Departments at Oxford. <b>No personally identifiable information will be collected or shared</b>.</p>
+        <p>The full survey should take about 10-15 minutes. No background knowledge is required. Your results will be utilized to determine the best interpretability modules and types of evidence to present to potential users of different machine learning models, and will be collected and utilized by the Computer Science and Engineering Departments at Oxford. <b>No personally identifiable information will be collected or shared</b>.</p>
     <h5>Do I have to take part?</h5>
         <p>Please note that your participation is voluntary. You may withdraw at any point during the questionnaire for any reason, before submitting your answers, by closing the browser. None of your answers will then be collected.</p>
     <h5>How will your data be used?</h5>
@@ -42,7 +42,7 @@
     <h3>Instructions:</h3>
   <p>
     Please review the patient scenario and evidence presented, and assess your level of comfort utilizing the models described to the best of your ability after each question.
-    <b>Please do not use the back/forward or refresh buttons once you have started the quiz.</b>
+    <b>Please do not use the back/forward or refresh buttons once you have started the survey.</b>
   </p>
  </div>
 
@@ -59,10 +59,22 @@
 
  <div id = 'Rest'></div>
 
+ <div class = 'commentSection'>
+    <h3>Comments</h3>
+    <p>Please leave any feedback, comments, or concerns about the survey you have just completed.</p>
+    <p><b>Important:</b> Do <b>not</b> include any personally identifiable information, such as name or email address.</p>
+    <p>You may also email the primary researcher at oren.lahav@gtc.ox.ac.uk.</p>
+    <form class = 'commentForm' id = 'Feedback'>
+        <textarea comments cols=40 rows=5 placeholder='Feedback:' form = 'Feedback'></textarea>
+        <br />
+        <button class = 'FeedbackButton'>Submit</button>
+    </form>
+ </div>
+
  <div class = 'finished'>
      <h3>Finished!!!</h3>
     <p>
-        Thank you very much for taking our quiz. Your anonymous results will be used in a model that shall determine the best evidence to present to potential users of ML models.
+        Thank you very much for taking our survey. Your anonymous results will be used in a model that shall determine the best evidence to present to potential users of ML models.
     </p>
 </div>
  
@@ -95,6 +107,15 @@
         header : '<b>Part 2:</b> Logistic Regression Model',
         description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wiscounsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
+            {
+                questionText : '<image src="M1Q0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model to inform medical actions?</p>',
+                answers: ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
             {
                 questionText : '<image src="M1Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers: ['Not at all confident, will not even consult model when considering further action',
@@ -148,6 +169,15 @@
         description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
+                questionText : '<image src="M2Q0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model to inform medical actions?</p>',
+                answers: ['Not at all confident, will not even consult model when considering further action',
+                            'Not very confident, unlikely to consult model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
                 questionText : '<image src="M2Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
                 answers: ['Not at all confident, will not even consult model when considering further action',
                             'Not very confident, unlikely to consult model',
@@ -178,11 +208,6 @@
     };
 
     var parts = [part1, part2];
-    var questionCodes = [
-        {qCode: 1,display: [[1,1,1,1],[1,1,0]], prob: 0.4},
-        {qCode: 2,display: [[1,0,1,0],[1,0,1]], prob: 0.3},
-        {qCode: 3,display: [[0,1,0,1],[0,1,0]], prob: 0.3}
-    ];
 
     //var answerKey = [0,2];
 
@@ -194,20 +219,20 @@
             [
                 {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -219,20 +244,20 @@
             [
                 {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -244,20 +269,20 @@
             [
                 {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -335,7 +360,6 @@
         return output
     }
 
-    var sequence = questionCodes[0];
     var dbAccesses = 1;
     var dbSeqData;
 
@@ -348,6 +372,20 @@
 
         //First things first - get latest prob from DB
         var dbRefProbs = firebase.database().ref('Probs');
+
+
+        //Code to reset probs when we're testing something new - comment out
+
+        //returnData = 
+        //            {
+        //                name:'X',
+        //                data:sequenceData,
+        //                accessCount:0
+        //            };
+        //            console.log(returnData);
+
+                    //Log the updates
+        //            dbRefProbs.set(returnData); 
 
         dbRefProbs.once('value', (response) => {
             
@@ -416,7 +454,7 @@
     }
 
 
-    //Function to update UCB once quiz is done
+    //Function to update UCB once survey is done
 
     function updateUBC(resultList, initialSeqData, runSummary, numAccess)
     {
@@ -533,6 +571,7 @@
     //Variables to store data:
     userContext = 0;
     dataReturn = [];
+    var initialSeqData;
 
     //Set code to run once page is loaded
     $(document).ready(function() {
@@ -554,13 +593,14 @@
         $('.section').hide();
         $('.finished').hide();
         $('.studyInfo').hide();
+        $('.commentSection').hide();
 
-        //Show full quiz details
+        //Show full survey details
         $('.showStudyInfo').on('click', function() {
             $('.studyInfo').toggle();
         })
 
-        //Initiate quiz:
+        //Initiate survey:
         $('.contextForm').on('submit', function(e){
             //Prevent page from refreshing
             e.preventDefault();
@@ -629,58 +669,17 @@
                 //If not, display finished and exit loop:
                 if(clicked==questionCounter)
                 {
-                    $('.finished').show();
+                    $('.commentSection').show();
+
                     console.log(dataReturn);
-                    
-                    //Also push it to Firebase!
-                    var dbRef = firebase.database().ref('Results');
-                    
-                    //Create result item:
-                    result = {
-                        answers : dataReturn,
-                        context : userContext,
-                        qSequence : runSummary
-                    };
-
-                    dbRef.push(result);
-
-                    //Update probability distributions of future sequences
+                                        
                     //Call Firebase
                     var dbRefProbs = firebase.database().ref('Probs');
-                    var dbRefProbHist = firebase.database().ref('History');
 
-                    //Redownload
-                    var initialSeqData;
-
+                    //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
                     dbRefProbs.once('value', (response) => {
                         initialSeqData = response.val().data;
                     });
-
-                    var updatedUBC;
-
-                    //Alert user to buy time
-
-                    timeout(2000).then( function(){
-                        console.log("Break check")
-                        console.log(initialSeqData)
-
-                        updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
-                    
-                    //Run the update function
-                    returnData = 
-                    {
-                        name:'X',
-                        data:updatedUBC,//sequenceData,
-                        accessCount:dbAccesses+1//0
-                    };
-                    console.log(returnData);
-
-                    //Log the updates
-                    dbRefProbs.set(returnData); 
-                    dbRefProbHist.push(returnData);
-
-                    });
-
 
                     //Exit loop
                     foundNextQuestion = true;
@@ -704,25 +703,65 @@
             }
                         
         })
+
+        //Grab Comments and finish things
+        $('.commentForm').on('submit', function(e){
+            //Prevent page from refreshing
+            e.preventDefault();
+
+            //Get response
+            userFeedback = $('textarea').val();
+            console.log('Feedback:');
+            console.log(userFeedback);
+
+            //Push results into Firebase DB:
+            var dbRef = firebase.database().ref('Results');
+                    
+            //Create result item:
+            result = {
+                answers : dataReturn,
+                context : userContext,
+                feedback : userFeedback,
+                qSequence : runSummary
+            };
+
+            console.log('Results recorded:');
+            console.log(result);
+
+            dbRef.push(result);
+
+            //Call the other DBs
+            var dbRefProbs = firebase.database().ref('Probs');
+            var dbRefProbHist = firebase.database().ref('History');
+
+            //Update probability distributions of future sequences
+            var updatedUBC;
+            updatedUBC = updateUBC(dataReturn, initialSeqData, runSummary, dbAccesses);
+
+            returnData = 
+            {
+                name:'X',
+                data:updatedUBC,//sequenceData,
+                accessCount:dbAccesses+1//0
+            };
+            console.log(returnData);
+
+            //Log the updates
+            dbRefProbs.set(returnData); 
+            dbRefProbHist.push(returnData);
+
+            //Hide comments section
+            $('.commentSection').hide();
+            
+            //Display the finished 1section
+            $('.finished').show();
+        });
+
     })
 
 
-    //Extra function to wait for Firebase variable to come back
-    function timeout(milliseconds) {
-        // Create a new Deferred object
-        var deferred = $.Deferred();
-
-        // Resolve the Deferred after the amount of time specified by milliseconds
-        alert('Thank you for completing the quiz! By clicking OK you are providing your consent to participating in the study and having your answers logged. No personally identifiable information has been recorded.')
-        setTimeout(deferred.resolve, 0);
-
-        // Return the Deferred's Promise object
-        return deferred.promise();
-    }
-
   </script>
 
 
-  </script>
 
 </html>
