@@ -52,7 +52,7 @@
      <form class='contextForm'>
             <input type="radio" class="contextQ" name='contextQ' value=0> Medical Sciences, Biology, Chemistry (or related)<br>
             <input type="radio" class="contextQ" name='contextQ' value=1> Mathematics, Statistics, Computer Science (or related)<br>
-            <input type="radio" class="contextQ" name='contextQ'  value=2> Other<br><br> 
+            <input type="radio" class="contextQ" name='contextQ' value=2> Other<br><br> 
             <input type="submit" value="Start">    
      </form>
   </div>
@@ -605,17 +605,22 @@
             //Prevent page from refreshing
             e.preventDefault();
 
-            //Get response
-            userContext = $('input:checked').val();
-            console.log('User Context:');
-            console.log(userContext);
+            //check if one answer is checked, otherwise do nothing:
+            if($('.contextQ').is(':checked'))
+            {
 
-            //Hide Start section
-            $('.startQuiz').hide();
+                //Get response
+                userContext = $('input:checked').val();
+                console.log('User Context:');
+                console.log(userContext);
+
+                //Hide Start section
+                $('.startQuiz').hide();
             
-            //Display the first only to start with
-            $('.section0').show();
-            $('.question0').show();
+                //Display the first only to start with
+                $('.section0').show();
+                $('.question0').show();
+            }
         });
 
         
@@ -628,81 +633,87 @@
 
         //On click
         $('.button').on('click', function() {
-            var foundNextQuestion = false;
-            var round = 0;
 
-            //While we haven't settled on a question to display
-            while(foundNextQuestion == false)
+            //Check if an option was selected - otherwise do nothing
+            if($('.question'+clicked).is(':checked'))
             {
-                //Check which question and section we're in
-                currentQuestion = '.question'+clicked;
-                currentSection = '.section'+sectionsPassed;
+                var foundNextQuestion = false;
+                var round = 0;
 
-                //Get the answer, if the user just answered. Otherwise log -1:
-                if(round == 0)
+                //While we haven't settled on a question to display
+                while(foundNextQuestion == false)
                 {
-                    userAnswer = $(':checked',currentQuestion).val();
-                }
-                else
-                {
-                    userAnswer = -1;
-                }
-                console.log(userAnswer);
-                dataReturn.push(userAnswer);
-
-                //Check if we're in a new section
-                questionsInSection++;
-                if (questionsInSection==parts[sectionsPassed].questions.length)
-                {
-                    sectionsPassed++;
-                    questionsInSection = 0;
-
-                    $(currentSection).hide();
+                    //Check which question and section we're in
+                    currentQuestion = '.question'+clicked;
                     currentSection = '.section'+sectionsPassed;
-                    $(currentSection).show();
-                }
 
-                //Check if there even is a next question
-                clicked++;
-                nextQuestion = '.question'+clicked;
-
-                //If not, display finished and exit loop:
-                if(clicked==questionCounter)
-                {
-                    $('.commentSection').show();
-
-                    console.log(dataReturn);
-                                        
-                    //Call Firebase
-                    var dbRefProbs = firebase.database().ref('Probs');
-
-                    //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
-                    dbRefProbs.once('value', (response) => {
-                        initialSeqData = response.val().data;
-                    });
-
-                    //Exit loop
-                    foundNextQuestion = true;
-                }
-
-                //Otherwise, check whether or not we display next question:
-                else
-                {
-                    $(currentQuestion).hide();
-                    if(seqToRun[userContext][clicked] == 1)
+                    //Get the answer, if the user just answered. Otherwise log -1:
+                    if(round == 0)
                     {
-                        $(nextQuestion).show();
+                        userAnswer = $(':checked',currentQuestion).val();
+                    }
+                    else
+                    {
+                        userAnswer = -1;
+                    }
+                    console.log(userAnswer);
+                    dataReturn.push(userAnswer);
+
+                    //Check if we're in a new section
+                    questionsInSection++;
+                    if (questionsInSection==parts[sectionsPassed].questions.length)
+                    {
+                        sectionsPassed++;
+                        questionsInSection = 0;
+
+                        $(currentSection).hide();
+                        currentSection = '.section'+sectionsPassed;
+                        $(currentSection).show();
+                    }
+
+                    //Check if there even is a next question
+                    clicked++;
+                    nextQuestion = '.question'+clicked;
+
+                    //If not, display finished and exit loop:
+                    if(clicked==questionCounter)
+                    {
+                        $('.commentSection').show();
+
+                        console.log(dataReturn);
+                                        
+                        //Call Firebase
+                        var dbRefProbs = firebase.database().ref('Probs');
+
+                        //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
+                        dbRefProbs.once('value', (response) => {
+                            initialSeqData = response.val().data;
+                        });
+
+                        //Exit loop
                         foundNextQuestion = true;
                     }
 
-                    //Otherwise, we just increase the round number and loop over to look for the next question
-                    
-                }
+                    //Otherwise, check whether or not we display next question:
+                    else
+                    {
+                        $(currentQuestion).hide();
+                        if(seqToRun[userContext][clicked] == 1)
+                        {
+                            $(nextQuestion).show();
+                            foundNextQuestion = true;
+                        }
+
+                        //Otherwise, we just increase the round number and loop over to look for the next question  
+                    }
 
                 round++;
-            }
-                        
+                }
+            }                
         })
+
+
+        //When 'Submit' is clicked (i.e. we're done)
 
         //Grab Comments and finish things
         $('.commentForm').on('submit', function(e){
