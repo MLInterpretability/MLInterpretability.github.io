@@ -59,6 +59,18 @@
 
  <div id = 'Rest'></div>
 
+ <div class = 'whyLow'>
+   
+    <p style='font-size:125%;'><i>You have rated your confidence in the model and outputted prediction after viewing the previous evidence as <b>low</b>.</p> <p>Please select the most relevant reason:</i></p>
+    <form class='whyLowForm'>
+           <input type="radio" class="whyLow" name='whyLow' value=0>The model prediction and evidence do not agree with my prior expectations of the patient's outcome<br>
+           <input type="radio" class="whyLow" name='whyLow' value=1>There is not enough information provided in the model and evidence seen so far to inspire medical action<br>
+           <input type="radio" class="whyLow" name='whyLow' value=2>The patient scenario is simply not black-or-white, I believe no model could be helpful in this case<br> 
+           <input type="radio" class="whyLow" name='whyLow' value=3>Another reason/I'm not sure<br><br> 
+           <input type="submit" value="Next">    
+    </form>
+ </div>
+
  <div class = 'commentSection'>
     <h3>Comments</h3>
     <p>Please leave any feedback, comments, or concerns about the survey you have just completed.</p>
@@ -81,16 +93,16 @@
 <!--CODE-->
 
 <!--Setup Firebase-->
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCPsD608Ch-EKwS6FAhs4oyUC1oq3xh-jA",
-    authDomain: "interpretabilitytry2.firebaseapp.com",
-    databaseURL: "https://interpretabilitytry2.firebaseio.com",
-    projectId: "interpretabilitytry2",
-    storageBucket: "",
-    messagingSenderId: "710256823813"
+    apiKey: "AIzaSyCGsk1r6jbIo3MDFMDquKqG3rb7ksK5wuY",
+    authDomain: "interpretabilityfinal.firebaseapp.com",
+    databaseURL: "https://interpretabilityfinal.firebaseio.com",
+    projectId: "interpretabilityfinal",
+    storageBucket: "interpretabilityfinal.appspot.com",
+    messagingSenderId: "686046306112"
   };
   firebase.initializeApp(config);
 </script>
@@ -105,59 +117,59 @@
     
     var part1 = {
         header : '<b>Part 2:</b> Logistic Regression Model',
-        description : '<p>The following questions pertain to a <b>logistic regression</b> model based on the Wisconsin Diagnostic Breast Cancer dataset.<br />This simple classification model uses a linear combiantion of various dependent features to estimate the probability of a breast tumour being benign or malignant.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
+        description : '<p>The following questions pertain to a <b>logistic regression</b> model, which is similar to linear regression but outputs classification probabilities. The model was trained on a Heart Failure dataset with over 30,000 patients, and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
-                questionText : '<image src="M1Q0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers: ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q0O0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M1Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers: ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q1O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M1Q2.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers : ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q1O1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M1Q3.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers : ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q2O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M1Q4.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers : ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q2O1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M1Q5.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers : ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S0Q3O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 27.6% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             }
@@ -166,48 +178,145 @@
 
     var part2 = {
         header : '<b>Part 3:</b> Neural Network',
-        description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on a Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
+        description : '<p>The following questions pertain to a <b>neural network</b>, a sophisticated black-box machine learning model. The model was trained on the same Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
         questions : [
             {
-                questionText : '<image src="M2Q0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers: ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S1Q0O0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M2Q1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers: ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S1Q1O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M2Q2.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers : ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S1Q2O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
             {
-                questionText : '<image src="M2Q3.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model to inform medical actions?</p>',
-                answers: ['Not at all confident, will not even consult model when considering further action',
-                            'Not very confident, unlikely to consult model',
+                questionText : '<image src="S1Q2O1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
                             'Somewhat confident, may consult model but unlikely to rely on it in any way',
-                            'Fairly confident, likely to consult model',
+                            'Fairly confident, likely to consult model and consider its predicted score',
                             'Very confident, almost certain to consult model together with other tools when considering further actions'
                 ]
             },
+            {
+                questionText : '<image src="S1Q3O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S1Q3O1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S1Q4O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk scores to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            }
         ]
     };
 
-    var parts = [part1, part2];
+    var part3 = {
+        header : '<b>Part 4:</b> Random Forest',
+        description : '<p>The following questions pertain to a <b>random forest</b>, a black-box machine learning algorithm that utilizes multiple decision trees. The model was trained on the same Heart Failure dataset and utilizes several features to predict the event that a patient suffering heart failure will die within one year.</p><p>Please examine the following scenario and relevant evidence in order and assess your level of confidence in the model after each step.</p>',
+        questions : [
+            {
+                questionText : '<image src="S2Q0O0.png" style="width:500px;"></image><p>Given the above only, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q1O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q2O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q3O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q4O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q4O1.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            },
+            {
+                questionText : '<image src="S2Q5O0.png" style="width:1000px;"></image><p>Given the above and previous information, how confident would you feel using the results of the model and the predicted risk score of 63.8% to inform medical actions?</p>',
+                answers: ['Not at all confident, would not even consider model and prediction when considering further action',
+                            'Not very confident, unlikely to consider model',
+                            'Somewhat confident, may consult model but unlikely to rely on it in any way',
+                            'Fairly confident, likely to consult model and consider its predicted score',
+                            'Very confident, almost certain to consult model together with other tools when considering further actions'
+                ]
+            }
+        ]
+    };
+
+    var parts = [part1, part2, part3];
 
     //var answerKey = [0,2];
 
@@ -219,20 +328,37 @@
             [
                 {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S0U0', seq: [1,1,0,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U1', seq: [1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U2', seq: [1,0,1,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U3', seq: [1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U4', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U5', seq: [1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U6', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U7', seq: [1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S1U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U1', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U2', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U3', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U4', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U5', seq: [1,1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U6', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U7', seq: [1,1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 3, possibleSequences:[
+                        {seqCode:'S2U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U1', seq: [1,1,1,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U2', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U3', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U4', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U5', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U6', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -242,22 +368,39 @@
             contextCounter : 0,
             contextData : 
             [
-                {
+            {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S0U0', seq: [1,1,0,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U1', seq: [1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U2', seq: [1,0,1,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U3', seq: [1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U4', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U5', seq: [1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U6', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U7', seq: [1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S1U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U1', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U2', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U3', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U4', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U5', seq: [1,1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U6', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U7', seq: [1,1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 3, possibleSequences:[
+                        {seqCode:'S2U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U1', seq: [1,1,1,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U2', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U3', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U4', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U5', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U6', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -267,22 +410,39 @@
             contextCounter : 0,
             contextData : 
             [
-                {
+            {
                     section: 1, possibleSequences:[
-                        {seqCode:'M1S0', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S1', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S2', seq: [1,0,0,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S3', seq: [1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S4', seq: [1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M1S5', seq: [1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S0U0', seq: [1,1,0,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U1', seq: [1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U2', seq: [1,0,1,1,0,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U3', seq: [1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U4', seq: [1,1,0,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U5', seq: [1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U6', seq: [1,0,1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S0U7', seq: [1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 },
                 {
                     section: 2, possibleSequences:[
-                        {seqCode:'M2S0', seq: [1,1,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S1', seq: [1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S2', seq: [1,0,1,0], numTries: 0, currentMean : 2.5, currentUCB : 10},
-                        {seqCode:'M2S3', seq: [1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                        {seqCode:'S1U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U1', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U2', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U3', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U4', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U5', seq: [1,1,0,1,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U6', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S1U7', seq: [1,1,0,1,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
+                    ]
+                },
+                {
+                    section: 3, possibleSequences:[
+                        {seqCode:'S2U0', seq: [1,1,1,0,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U1', seq: [1,1,1,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U2', seq: [1,1,1,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U3', seq: [1,1,1,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U4', seq: [1,1,0,1,0,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U5', seq: [1,1,0,0,1,0,1], numTries: 0, currentMean : 2.5, currentUCB : 10},
+                        {seqCode:'S2U6', seq: [1,1,0,0,0,1,1], numTries: 0, currentMean : 2.5, currentUCB : 10}
                     ]
                 }
             ]
@@ -383,8 +543,8 @@
         //                accessCount:0
         //            };
         //            console.log(returnData);
-
-                    //Log the updates
+        //
+        //            //Log the updates
         //            dbRefProbs.set(returnData); 
 
         dbRefProbs.once('value', (response) => {
@@ -571,6 +731,7 @@
     //Variables to store data:
     userContext = 0;
     dataReturn = [];
+    whys = [];
     var initialSeqData;
 
     //Set code to run once page is loaded
@@ -594,6 +755,7 @@
         $('.finished').hide();
         $('.studyInfo').hide();
         $('.commentSection').hide();
+        $('.whyLow').hide();
 
         //Show full survey details
         $('.showStudyInfo').on('click', function() {
@@ -640,76 +802,175 @@
                 var foundNextQuestion = false;
                 var round = 0;
 
-                //While we haven't settled on a question to display
-                while(foundNextQuestion == false)
+                selectedAnswer = $(':checked','.question'+clicked).val();
+
+                //If we need to display a Why (for medical only, not on first question of each section):
+                if(userContext == 0 && selectedAnswer < 2 && clicked != 0 && clicked != 6 && clicked != 13)
                 {
-                    //Check which question and section we're in
-                    currentQuestion = '.question'+clicked;
-                    currentSection = '.section'+sectionsPassed;
 
-                    //Get the answer, if the user just answered. Otherwise log -1:
-                    if(round == 0)
-                    {
-                        userAnswer = $(':checked',currentQuestion).val();
-                    }
-                    else
-                    {
-                        userAnswer = -1;
-                    }
-                    console.log(userAnswer);
-                    dataReturn.push(userAnswer);
+                    console.log('WHY')
 
-                    //Check if we're in a new section
-                    questionsInSection++;
-                    if (questionsInSection==parts[sectionsPassed].questions.length)
-                    {
-                        sectionsPassed++;
-                        questionsInSection = 0;
+                    $('.question'+clicked).hide();
+                    $('.whyLow').attr('checked',false);
+                    $('.whyLow').show();
 
-                        $(currentSection).hide();
-                        currentSection = '.section'+sectionsPassed;
-                        $(currentSection).show();
-                    }
+                     $('.whyLow').on('submit', function(e){
 
-                    //Check if there even is a next question
-                    clicked++;
-                    nextQuestion = '.question'+clicked;
+                        //Prevent page from refreshing
+                        e.preventDefault();
 
-                    //If not, display finished and exit loop:
-                    if(clicked==questionCounter)
-                    {
-                        $('.commentSection').show();
+                        $('.whyLow').hide();
+                        console.log($('input[name=whyLow]:checked').val())
 
-                        console.log(dataReturn);
-                                        
-                        //Call Firebase
-                        var dbRefProbs = firebase.database().ref('Probs');
+                        whys.push('Q'+clicked+'W'+$('input[name=whyLow]:checked').val());
 
-                        //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
-                        dbRefProbs.once('value', (response) => {
-                            initialSeqData = response.val().data;
-                        });
-
-                        //Exit loop
-                        foundNextQuestion = true;
-                    }
-
-                    //Otherwise, check whether or not we display next question:
-                    else
-                    {
-                        $(currentQuestion).hide();
-                        if(seqToRun[userContext][clicked] == 1)
+                        //While we haven't settled on a question to display
+                        while(foundNextQuestion == false)
                         {
-                            $(nextQuestion).show();
+                            //Check which question and section we're in
+                            currentQuestion = '.question'+clicked;
+                            currentSection = '.section'+sectionsPassed;
+
+                            //Get the answer, if the user just answered. Otherwise log -1:
+                            if(round == 0)
+                            {
+                                userAnswer = selectedAnswer;
+                            }
+                            else
+                            {
+                                userAnswer = -1;
+                            }
+                            console.log(userAnswer);
+                            dataReturn.push(userAnswer);
+
+                            //Check if we're in a new section
+                            questionsInSection++;
+                            if (questionsInSection==parts[sectionsPassed].questions.length)
+                            {
+                                sectionsPassed++;
+                                questionsInSection = 0;
+
+                                $(currentSection).hide();
+                                currentSection = '.section'+sectionsPassed;
+                                $(currentSection).show();
+                            }
+
+                            //Check if there even is a next question
+                            clicked++;
+                            nextQuestion = '.question'+clicked;
+
+                            //If not, display finished and exit loop:
+                            if(clicked==questionCounter)
+                            {
+                                $('.commentSection').show();
+
+                                console.log(dataReturn);
+                                        
+                                //Call Firebase
+                                var dbRefProbs = firebase.database().ref('Probs');
+
+                                //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
+                                dbRefProbs.once('value', (response) => {
+                                    initialSeqData = response.val().data;
+                                });
+
+                                //Exit loop
+                                foundNextQuestion = true;
+                            }
+
+                            //Otherwise, check whether or not we display next question:
+                            else
+                            {
+                                $(currentQuestion).hide();
+                                if(seqToRun[userContext][clicked] == 1)
+                                {
+                                    $(nextQuestion).show();
+                                    foundNextQuestion = true;
+                                }
+
+                                //Otherwise, we just increase the round number and loop over to look for the next question  
+                            }
+
+                        round++;
+                        } 
+                     })
+                }
+
+
+                //else - no why: Just move on!
+                else
+                {    
+                    //While we haven't settled on a question to display
+                    while(foundNextQuestion == false)
+                    {
+                        //Check which question and section we're in
+                        currentQuestion = '.question'+clicked;
+                        currentSection = '.section'+sectionsPassed;
+
+                        //Get the answer, if the user just answered. Otherwise log -1:
+                        if(round == 0)
+                        {
+                            userAnswer = selectedAnswer;
+                        }
+                        else
+                        {
+                            userAnswer = -1;
+                        }
+                        console.log(userAnswer);
+                        dataReturn.push(userAnswer);
+
+                        //Check if we're in a new section
+                        questionsInSection++;
+                        if (questionsInSection==parts[sectionsPassed].questions.length)
+                        {
+                            sectionsPassed++;
+                            questionsInSection = 0;
+
+                            $(currentSection).hide();
+                            currentSection = '.section'+sectionsPassed;
+                            $(currentSection).show();
+                        }
+
+                        //Check if there even is a next question
+                        clicked++;
+                        nextQuestion = '.question'+clicked;
+
+                        //If not, display finished and exit loop:
+                        if(clicked==questionCounter)
+                        {
+                            $('.commentSection').show();
+
+                            console.log(dataReturn);
+                                        
+                            //Call Firebase
+                            var dbRefProbs = firebase.database().ref('Probs');
+
+                            //Redownload Data (so it's fresh, we'll use this newer copy to update UBCs)
+                            dbRefProbs.once('value', (response) => {
+                                initialSeqData = response.val().data;
+                            });
+
+                            //Exit loop
                             foundNextQuestion = true;
                         }
 
-                        //Otherwise, we just increase the round number and loop over to look for the next question  
-                    }
+                        //Otherwise, check whether or not we display next question:
+                        else
+                        {
+                            $(currentQuestion).hide();
+                            if(seqToRun[userContext][clicked] == 1)
+                            {
+                                $(nextQuestion).show();
+                                foundNextQuestion = true;
+                            }
 
-                round++;
-                }
-            }                
+                            //Otherwise, we just increase the round number and loop over to look for the next question  
+                        }
+
+                    round++;
+                    }
+                }  
+            }              
         })
 
 
@@ -727,17 +988,38 @@
 
             //Push results into Firebase DB:
             var dbRef = firebase.database().ref('Results');
-                    
+
+            if(whys.length > 0)
+            {        
+                whyResults = [whys[0]];
+                whyCheck = 0;
+                for(w = 0; w  < whys.length; w++)
+                {
+                    if(whys[w] != whyResults[whyCheck])
+                    {
+                        whyResults.push(whys[w]);
+                        whyCheck++;
+                    }
+                }
+            }
+            else
+            {
+                whyResults = [];
+            }
+
             //Create result item:
             result = {
                 answers : dataReturn,
                 context : userContext,
                 feedback : userFeedback,
-                qSequence : runSummary
+                qSequence : runSummary,
+                whys: whyResults
             };
 
             console.log('Results recorded:');
             console.log(result);
+            console.log('whyResults')
+            console.log(whyResults)
 
             dbRef.push(result);
 
