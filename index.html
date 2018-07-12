@@ -928,7 +928,7 @@
     part2Reasons = [];
     var part1FinalAns;
     var part1FinalReason;
-    var part2FinalAns;
+    part2FinalAns = 0;
     seqToRun = [];
     runSummary = [];
     Part1Length = 5;
@@ -1430,6 +1430,7 @@
         
                 patientsSeen++;
                 part2Ans.push($(':checked','.'+q).val());
+                part2FinalAns = part2FinalAns + parseInt($(':checked','.'+q).val());
                 part2Reasons.push($('.P'+patientsSeen+'QText').val());
 
                 if(patientsSeen < TotalNumPatients)
@@ -1478,7 +1479,7 @@
                     interactionRecord = [interactP1, interactP2, interactP3, interactP4, SLIM1, SLIM2, SLIM3, SLIM4, TREE1, TREE2, TREE3, TREE4, outcomeP1, outcomeP2, outcomeP3, outcomeP4];
 
                     //Get final answer
-                    part2FinalAns = $(':checked','.'+q).val();
+                    part2FinalAns = part2FinalAns/TotalNumPatients;
                     console.log('Final:');
                     console.log(part2FinalAns);
 
