@@ -128,11 +128,12 @@
         <div class = 'Evidence3'>
                 <h3>Model Accuracy</h3>
                 <p>The neural network showcases <b>81.26%</b> accuracy, which means that 81% of the test cases were classified correctly by the model.</p>
-                <p>The model's AUC-ROC (area under the receiver operating curve), which is equal to the C-Index, is <b>0.725</b>, with a standard deviation of 0.0054, averaged over 10 runs.<br/>This value is much higher than the best linear regression model, which achieves AUC-ROC of 0.537. It is also significantly higher than the AUC-ROC of the MAGGIC Risk Score, which is 0.6933. For more information on the C-Statistic or AUC-ROC, <a href="http://www.statisticshowto.com/c-statistic/" target="_blank">click here</a>. For information on the MAGGIC Risk Score, <a href="http://www.heartfailurerisk.org/" target="_blank">click here</a>.</p>
+                <p>The model's AUC-ROC (area under the receiver operating curve), which is equal to the C-Index, is <b>0.725</b>, with a standard deviation of 0.0054, averaged over 10 runs. For more information on the C-Statistic or AUC-ROC, <a href="http://www.statisticshowto.com/c-statistic/" target="_blank">click here</a>.</p>
                 <p>The model's ROC curve is below:</p>
-                <p style="text-align:center;"><img src="NNROC.png" style="width:250px;"></p>
-                <p>In addition, the model achieves an AUC-PR (area under the precision recall curve) of <b>0.376</b>, higher than a Linear Regression model (0.250) and the MAGGIC Risk Score (0.342). For more information about precision and recall, <a href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">click here</a>. </p>
-                <p>These metrics showcase the neural network model's high accuracy, especially when compared with alternative, simpler statistical models, and established risk scores.</p>
+                <p style="text-align:center;"><img src="NNROC.png" style="width:350px;"></p>
+                <p>In addition, the model achieves an AUC-PR (area under the precision recall curve) of <b>0.376</b>. For more information about precision and recall, <a href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">click here</a>.</p>
+                <p>The neural network's accuracy values for both AUC-ROC and AUC-PR are much higher than the best linear regression model trained on the same data. They are also significantly higher than the accuracy of the MAGGIC Risk Score, an accepted risk score trained on the same data and developed by the European Society of Cardiology and other researchers. For information on the MAGGIC Risk Score, <a href="http://www.heartfailurerisk.org/" target="_blank">click here</a>. The chart below summarizes these results:</p>
+                <p style="text-align:center;"><img src="NNAccuracy.png" style="width:450px;"></p>
                 <hr style="border-top: dotted 1px;" />
                 <div class = 'E3Q' class='evForm'>
                         <p>How useful do you believe medical experts would find this information about the accuracy of the model powering a decision-support system for heart failure patients?</p>
